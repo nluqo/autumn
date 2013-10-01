@@ -65,13 +65,19 @@
 				text-shadow: 0px -1px 0px rgba(0,0,0,.7);
 				border-top: 1px solid rgba(255,255,255,.5);
 			}
+			
+			h3{
+				margin:0px 0px 5px 0px;
+			}
 		</style>
 	</head>
 <body>
 	
 <div style="width:400px;margin:0 auto;padding:15px;">
 	
-	Hue scale:
+	<h3>init() options</h3>
+	
+	hueScale:
 	<select id="hueScale">
 		<option selected="selected">1</option>
 		<option>.75</option>
@@ -81,7 +87,7 @@
 	</select>
 	<br>
 	
-	Hue center:
+	hueCenter:
 	<select id="hueOffset">
 		<option selected="selected">0</option>
 		<option>30</option>
@@ -98,7 +104,7 @@
 	</select>
 	<br>
 	
-	Color algorithm:
+	generator:
 	<select id="colorAlgorithm">
 		<option selected="selected">halton</option>
 		<option >primeWalk</option>
@@ -106,7 +112,7 @@
 	<br>
 	
 	<div id="hueDistanceContainer">
-		primeWalk hue distance:
+		primeWalkHueDistance:
 		<select id="hueDistance">
 			<option selected="selected">223</option>
 			<option>53</option>
@@ -117,7 +123,8 @@
 		<br>
 	</div>	
 
-	
+	<hr>
+	<h3>Display options</h3>
 	
 	Background:
 	<select id="background">
@@ -161,9 +168,9 @@
 	
 	function updateColoring(){
 		if($("#colorAlgorithm").val()==="primeWalk"){
-			$("#hueDistance").show();
+			$("#hueDistanceContainer").show();
 		}else{
-			$("#hueDistance").hide();
+			$("#hueDistanceContainer").hide();
 		}
 		
 		for(var i=0;i<demoProfiles.length;i++){
