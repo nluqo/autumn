@@ -1,0 +1,13 @@
+div{
+	padding:15px 30px;
+	width: 250px;
+	margin: 0 auto;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+div:hover{
+	width: 270px;
+}
