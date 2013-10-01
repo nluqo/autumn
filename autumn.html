@@ -1,0 +1,274 @@
+
+<html>
+	<head>
+		<style>
+			body{
+				font-family: Helvetica, Arial;
+				font-weight: bold;
+				width: 100%;
+				min-height:100%;
+				margin:0px;
+				padding:0px;
+			}
+			
+			
+			.swatch{
+				width:30px;
+				height:30px;
+				display:inline-block;
+				text-align:center;
+				background-color:grey;
+			}
+			
+			.pill{
+				padding: 5px 15px;
+				display:inline-block;
+				font-family: Helvetica, Arial;
+				font-weight: bold;
+				border-radius:12px;
+				margin: 5px;
+				background-color: grey;
+				/*box-shadow: 0px 0px 0px 2px black;*/
+			}
+			
+			.color_profile_detail{
+				margin-left:15px;
+				font-size:14px;
+				font-weight:normal;
+				vertical-align: middle;
+			}
+			
+			.i-holder{
+				height: 100px;
+				width: 100px;
+				display:inline-block;
+				padding:10px;
+				text-align:center;
+			}
+			
+			.color-icon{
+				font-size:70px;
+				line-height: 70px;
+			}
+			
+			
+			
+			.rounded-btn{
+				border-radius: 5px;
+				padding:8px 40px;
+				display:inline-block;
+				min-width:40px;
+				text-align:center;
+				margin: 20px;
+				color: rgba(255,255,255,1);
+				font-size: 20px;
+				font-weight:bold;
+				text-shadow: 0px -1px 0px rgba(0,0,0,.7);
+				border-top: 1px solid rgba(255,255,255,.5);
+			}
+		</style>
+	</head>
+<body>
+	
+<div style="width:400px;margin:0 auto;padding:15px;">
+	
+	Hue scale:
+	<select id="hueScale">
+		<option selected="selected">1</option>
+		<option>.75</option>
+		<option>.5</option>
+		<option>.333333</option>
+		<option>.166666</option>
+	</select>
+	<br>
+	
+	Hue center:
+	<select id="hueOffset">
+		<option selected="selected">0</option>
+		<option>30</option>
+		<option>60</option>
+		<option>90</option>
+		<option>120</option>
+		<option>150</option>
+		<option>180</option>
+		<option>210</option>
+		<option>240</option>
+		<option>270</option>
+		<option>300</option>
+		<option>330</option>
+	</select>
+	<br>
+	
+	Color algorithm:
+	<select id="colorAlgorithm">
+		<option selected="selected">halton</option>
+		<option >primeWalk</option>
+	</select>
+	<br>
+	
+	<div id="hueDistanceContainer">
+		primeWalk hue distance:
+		<select id="hueDistance">
+			<option selected="selected">223</option>
+			<option>53</option>
+			<option>29</option>
+			<option>23</option>
+			<option>17</option>
+		</select>
+		<br>
+	</div>	
+
+	
+	
+	Background:
+	<select id="background">
+		<option selected="selected">white</option>
+		<option>grey</option>
+		<option>black</option>
+	</select>
+	<br>
+	
+	Text:
+	<select id="fontColor">
+		<option>white</option>
+		<option>black</option>
+	</select>
+</div>
+
+
+
+
+<div style="width:600px;margin: 0 auto;padding" id="container">
+</div>
+
+
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script src="https://rawgithub.com/boronine/husl/v2.0.0/husl.min.js"></script>
+
+<script src="autumn.js"></script>
+
+<script>
+	
+	
+	//DEMO
+	
+	
+	
+	function updateColoring(){
+		if($("#colorAlgorithm").val()==="primeWalk"){
+			$("#hueDistance").show();
+		}else{
+			$("#hueDistance").hide();
+		}
+		
+		for(var i=0;i<demoProfiles.length;i++){
+			var profile = demoProfiles[i];
+			$.fn.autumn.init({
+				hueCenter: Number($("#hueOffset").val()),
+				hueScale: Number($("#hueScale").val()),
+				generator: $("#colorAlgorithm").val(),
+				primeWalkHueDistance:$("#hueDistance").val(),
+				colorProfile:profile
+			});
+			$(".swatch."+profile+"_color").autumn();
+			$(".pill."+profile+"_color").autumn();
+		}
+	}
+	
+	function updateBackground(){
+		$("body").css({backgroundColor: $("#background").val()});
+		if($("#background").val()==="black"){
+			$("body").css({
+				color: "white"
+			});
+		}else{
+			$("body").css({
+				color: "black"
+			});
+		}
+	}
+	
+	function updateTextColor(){
+		if($("#fontColor").val()==="black"){
+			$(".pill").css({
+				color: "black",
+				textShadow: "0px 1px 1px rgba(255,255,255,.5)"
+			});
+		}else{
+			$(".pill").css({
+				color: "white",
+				textShadow: "1px 1px 2px black"
+			});
+		}
+	}
+	
+	
+	var demoProfiles = ['default','hsldefault','dark','light','pastel','wide','superwide','saturated','greyscale'];
+	
+	$(function(){
+		$("#hueOffset,#hueScale,#saturationScale,#lightnessScale,#colorAlgorithm,#hueDistance").change(updateColoring);
+		
+		$("#background").change(updateBackground);
+		
+		$("#fontColor").change(updateTextColor);
+		
+		$("#container").append('<h1 id="title">Autumn.js</h1>');
+		
+		var colorProfiles = $.fn.autumn.getColorProfiles();
+		
+		for(var i=0;i<demoProfiles.length;i++){
+			var profile = demoProfiles[i];
+			
+			$("#container").append("<h2>"+profile+
+				'<span class="color_profile_detail">('+
+					colorProfiles[profile][0]+', '+
+					'S:'+colorProfiles[profile][1]+'-'+colorProfiles[profile][2]+', '+
+					'L:'+colorProfiles[profile][3]+'-'+colorProfiles[profile][4]+		
+				')</span>'+
+			"</h2>");
+			
+
+
+			for(var j=0;j<100;j++){
+				$("#container").append('<div class="swatch '+profile+'_color"></div>');
+			}
+			
+			$("#container").append('<br><br>');
+			for(var j=0;j<20;j++){
+				$("#container").append('<div class="pill '+profile+'_color">'+("Lorem ipsum dolor").substring(0,1+Math.floor(17*Math.random()))+' '+j+'</div>');
+			}
+		}
+		
+		$("#container").append('<br><br>');
+
+		
+		updateColoring();
+		updateBackground();
+		updateTextColor();
+		
+		
+		
+		/*$("#container").append('<br><br>');
+		for(var j=0;j<30;j++){
+			$("#container").append('<div class="i-holder"><i class="icon-bell-alt color-icon" id="'+j+'"></i></div>');
+		}
+
+		$(".color-icon").autumn("color","id");*/
+		
+		/*$.fn.autumn.init({colorProfile:'dark',generator:'halton',hueScale:.5, hueCenter:180});
+		for(var j=0;j<30;j++){
+			var gradColors = $.fn.autumn.getGradientColors(j);
+			$("#container").append('<div class="rounded-btn" style="background: -webkit-gradient(linear, left top, left bottom, from('+gradColors[0]+'), to('+gradColors[1]+'));">Button</div>');
+		}*/
+		
+	});
+
+</script>
+</body>
+</html>
