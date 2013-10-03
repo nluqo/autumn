@@ -35,7 +35,7 @@ returns an array with colors (0: lighter, 1: darker) which can be used for creat
 ```javascript
   //init with all options specified
   $.fn.autumn.init({
-  	colorProfile:['hsl',	40,	80,	60,		60],
+  	colorProfile:['hsl', 40, 80, 60, 60],
   	hueScale:.25,
   	hueCenter:270,
   	generator:'primeWalk',
