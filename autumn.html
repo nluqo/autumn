@@ -224,7 +224,7 @@
 		
 		$("#fontColor").change(updateTextColor);
 		
-		$("#container").append('<h1 id="title">Autumn.js</h1>');
+		$("#container").append('<h1 id="title">Autumn</h1>');
 		
 		var colorProfiles = $.fn.autumn.getColorProfiles();
 		
@@ -257,21 +257,6 @@
 		updateColoring();
 		updateBackground();
 		updateTextColor();
-		
-		
-		
-		/*$("#container").append('<br><br>');
-		for(var j=0;j<30;j++){
-			$("#container").append('<div class="i-holder"><i class="icon-bell-alt color-icon" id="'+j+'"></i></div>');
-		}
-
-		$(".color-icon").autumn("color","id");*/
-		
-		/*$.fn.autumn.init({colorProfile:'dark',generator:'halton',hueScale:.5, hueCenter:180});
-		for(var j=0;j<30;j++){
-			var gradColors = $.fn.autumn.getGradientColors(j);
-			$("#container").append('<div class="rounded-btn" style="background: -webkit-gradient(linear, left top, left bottom, from('+gradColors[0]+'), to('+gradColors[1]+'));">Button</div>');
-		}*/
 		
 	});
 
