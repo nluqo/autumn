@@ -20,7 +20,7 @@ specify the color space and how to explore it
 returns a color based on a key
   * **key**: a number or string
 
-### $.fn.autumn.getGradientColors()
+### $.fn.autumn.getGradientColors(key, lightnessSpread)
 returns an array with colors (0: lighter, 1: darker) which can be used for creating gradients
   * **key**: a number or string
   * **lightnessSpread**: a number 0-100 specifying the lightness difference between the two colors. Default i.s 30
