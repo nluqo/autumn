@@ -1,0 +1,44 @@
+<html>
+	<body>
+		<link rel="stylesheet" href="demo.css" />
+		
+		<div>World</div><div>Politics</div><div>Business</div><div>Tech</div><div>Entertainment</div><div>Health</div><div>Cats</div><div>Dogs</div>
+		
+		<h1 id="hello" data-foo="Hello World">Hello World</h1>
+		
+		<h1 id="lorem" data-foo="Hello World">Lorem ipsum</h1>
+		
+		<h1 id="button">Clicky</h1>
+		
+		<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="https://rawgithub.com/boronine/husl/v2.0.0/husl.min.js"></script>
+		<script src="autumn.js"></script>
+		
+		<script>
+			//init with all options specified
+			$.fn.autumn.init({
+				colorProfile:['hsl',	40,	80,	60,		60],
+				hueScale:.25,
+				hueCenter:270,
+				generator:'primeWalk',
+				primeWalkHueDistance: 53
+			});
+			
+			$("div").autumn();
+			
+			//init with no options; reverts to defaults
+			$.fn.autumn.init({});
+			
+			$("#hello").autumn("color","data-foo");
+			
+			$("#lorem").css({
+				"color": $.fn.autumn.getColor(99)
+			});
+			
+			var gradColors = $.fn.autumn.getGradientColors(128, 40);
+			$("#button").css({
+				'background': 'linear-gradient(180deg, '+gradColors[0]+','+gradColors[1]+')'
+			});
+		</script>
+	</body>
+</html>
