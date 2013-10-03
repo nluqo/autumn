@@ -34,6 +34,10 @@ But generating lots of *deterministic* colors that look great together is a bit 
 
 Judge for yourself on the [color profile demo](https://rawgithub.com/nluqo/autumn/master/autumn.html).
 
+### API
+
+[Here](api.md).
+
 ### Color profiles, etc.
 
 Autumn lets you decide what color space to use and *how much* of it explore. Before coloring elements, you can configure Autumn by calling **init()** and passing an options object with any of the following arguments:
