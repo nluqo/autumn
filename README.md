@@ -37,19 +37,3 @@ Judge for yourself on the [color profile demo](https://rawgithub.com/nluqo/autum
 ### API
 
 [Here](api.md).
-
-### Color profiles, etc.
-
-Autumn lets you decide what color space to use and *how much* of it explore. Before coloring elements, you can configure Autumn by calling **init()** and passing an options object with any of the following arguments:
-
- * **colorProfile**: The name of an existing colorProfile to use (the profiles are shown in the above demo) *or* an array describing a new color profile:
-    * A color space ('hsl', 'husl', or 'huslp'). [Read more about HUSL](http://boronine.com/husl/).
-    * A minimum saturation (0-100).
-    * A maximum saturation (0-100).
-    * A minimum lightness (0-100).
-    * A maximum lightness (0-100).
- * **hueScale**: What fraction of hues to explore. Default is 1.
- * **hueCenter**: Where to center hue exploration (0-359). Default is 0.
- * **generator**: The algorithm for generating colors('halton' or 'primeWalk'). Prime walk lets you specify exactly the distance between consecutive hues (say, for generating a rainbow). Default is 'halton'.
-
-One of the trade-offs here is between variability and consistency. As you explore less and less of a color space, your colors will become more consistent but harder to distinguish.
