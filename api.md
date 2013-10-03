@@ -1,3 +1,6 @@
+API
+=======
+
 ### .autumn(color,keyAttribute)
 color the matched set of elements based on their order (by default) or a specified attribute
  * **colorProperty**: a CSS or DOM property to color. Default is 'backgroundColor'
@@ -24,6 +27,8 @@ returns a color based on a key
 returns an array with colors (0: lighter, 1: darker) which can be used for creating gradients
   * **key**: a number or string
   * **lightnessSpread**: a number 0-100 specifying the lightness difference between the two colors. Default i.s 30
+
+### Demo
 
 [kitchen sink demo](https://rawgithub.com/nluqo/autumn/master/kitchensinkdemo.html)
 
