@@ -1,4 +1,4 @@
-Autumn
+Autumn.js
 ======
 Autumn generates deterministic colors. It's great for coloring tags, navigation, and icons.
 
