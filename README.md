@@ -1,6 +1,6 @@
 Autumn.js
 ======
-Autumn generates deterministic colors. It's great for coloring tags, navigation, and icons.
+Autumn generates deterministic colors. It's great for coloring tags, navigation, and icons ([this post](http://jere.in/why-are-cnns-headers-grey) demonstrates one such use case).
 
 ### Using Autumn
 
