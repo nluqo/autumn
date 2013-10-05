@@ -74,6 +74,11 @@
 <body>
 	
 <div style="width:400px;margin:0 auto;padding:15px;">
+	<h1 id="title">Autumn.js Color Profile Demo</h1>
+	
+	<p>This page demonstrates how Autumn can be configured with the init function. The drop downs below correspond to the properties of the options object taken by init. </p>
+	
+	<p>The most important property of options is a 'colorProfile.' A color profile is a combination of a color space, a range of saturation, and a range of lightness. The out of the box profiles are demonstrated below.</p>
 	
 	<h3>init() options</h3>
 	
@@ -223,8 +228,6 @@
 		$("#background").change(updateBackground);
 		
 		$("#fontColor").change(updateTextColor);
-		
-		$("#container").append('<h1 id="title">Autumn</h1>');
 		
 		var colorProfiles = $.fn.autumn.getColorProfiles();
 		
