@@ -8,7 +8,7 @@ Include jQuery, [HUSL](http://boronine.com/husl/) (optional, but recommended), a
 ```javascript
 <script src="jquery-1.10.1.min.js"/>
 <script src="husl.min.js"/>
-<script src="autumn.js"/>
+<script src="autumn.min.js"/>
 ```
 Then color as many elements as you want with a single line:
 ```javascript
