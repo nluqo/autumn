@@ -16,9 +16,10 @@ specify the color space and how to explore it
       * A minimum lightness (0-100).
       * A maximum lightness (0-100).
     * **hueScale**: What fraction of hues to explore. Default is 1.
-    * **hueCenter**: Where to center hue exploration (0-359). Default is 0 (red).
+    * **hueCenter**: Where to center hue exploration (0-360). Default is 0 (red).
     * **generator**: The algorithm for generating colors('[halton](http://en.wikipedia.org/wiki/Halton_sequence)' or 'primeWalk'). Prime walk lets you specify exactly the distance between consecutive hues (say, for generating a rainbow). Default is 'halton'.
-  
+    * **primeWalkHueDistance**: When using primeWalk, the distance between consecutive hues (0-360). Default is 223.  
+
 ### $.fn.autumn.getColor(key)
 returns a color based on a key
   * **key**: a number or string
