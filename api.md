@@ -15,7 +15,7 @@ specify the color space and how to explore it
       * A maximum saturation (0-100).
       * A minimum lightness (0-100).
       * A maximum lightness (0-100).
-    * **hueScale**: What fraction of hues to explore. Default is 1.
+    * **hueScale**: What fraction of hues to explore (0-1). Default is 1.
     * **hueCenter**: Where to center hue exploration (0-360). Default is 0 (red).
     * **generator**: The algorithm for generating colors('[halton](http://en.wikipedia.org/wiki/Halton_sequence)' or 'primeWalk'). Prime walk lets you specify exactly the distance between consecutive hues (say, for generating a rainbow). Default is 'halton'.
     * **primeWalkHueDistance**: When using primeWalk, the distance between consecutive hues (0-360). Default is 223.  
@@ -36,7 +36,7 @@ returns an array with colors (0: lighter, 1: darker) which can be used for creat
 ```javascript
   //init with all options specified
   $.fn.autumn.init({
-  	colorProfile:['hsl', 40, 80, 60, 60],
+  	colorProfile:['hsl', 40, 80, 60, 60], //a name would work fine as well (e.g. 'light')
   	hueScale:.25,
   	hueCenter:270,
   	generator:'primeWalk',
