@@ -6,9 +6,9 @@ Autumn generates deterministic colors. It's great for coloring tags, navigation,
 
 Include jQuery, [HUSL](http://boronine.com/husl/) (optional, but recommended), and Autumn.
 ```javascript
-<script src="jquery-1.10.1.min.js"/>
-<script src="husl.min.js"/>
-<script src="autumn.min.js"/>
+<script src="jquery-1.10.1.min.js"></script>
+<script src="husl.min.js"></script>
+<script src="autumn.min.js"></script>
 ```
 Then color as many elements as you want with a single line:
 ```javascript
